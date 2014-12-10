@@ -3,8 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.Vector;
 
 /**
  * Created by Marist User on 12/2/2014.
@@ -16,10 +16,14 @@ public class LockFrame extends JDialog {
     Robot rob;
     JLabel bg;
     ImageIcon bsod, screenShot;
+    static BufferedReader conf;
+
 
     LockFrame(){
+        readConfigFile();
         setAlwaysOnTop(true);
         setUndecorated(true);
+        setBackground(new Color(0, 0, 0, 0));
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         setBounds(0, 0, gd.getDisplayMode().getWidth(), gd.getDisplayMode().getHeight());
         addMouseListener(mkMouseAdapter());
@@ -45,8 +49,15 @@ public class LockFrame extends JDialog {
 
         } catch (Exception e){}
 
+        if(Options.showClock){
+            add(new JClock_Panel(), BorderLayout.CENTER);
+        }
 
-        bg = new JLabel(screenShot);
+        if(Options.showDesktop)
+            bg = new JLabel(screenShot);
+        else
+            bg = new JLabel(" ");
+
         bg.setBounds(0,0,getWidth(),getHeight());
         add(bg);
         setVisible(true);
@@ -59,7 +70,7 @@ public class LockFrame extends JDialog {
                 while (true){
                     repaint();
                     try {
-                        Thread.sleep(20);
+                        Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -72,8 +83,10 @@ public class LockFrame extends JDialog {
         return new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                bg.setIcon(bsod);
                 robotControls();
+
+                if(Options.showBSOD)
+                    bg.setIcon(bsod);
 
                 if( unlockPhrase.charAt(phraseIDX)== e.getKeyChar()){
                     phraseIDX++;
@@ -84,11 +97,50 @@ public class LockFrame extends JDialog {
                     phraseIDX=0;
                 }
 
-                /*if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
                     System.exit(0);
                 }//*/
             }
         };
+    }//..
+
+    protected void readConfigFile(){
+        try {
+            String line;
+            Vector<String> entries = new Vector<String>();
+            conf = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/config/jlock.conf")));
+            while ((line = conf.readLine()) != null){
+                    entries.add(line);
+            }
+
+            for(String s:entries){
+                String[] setting = s.split("=");
+                if(setting[0].equals("unlockphrase")){
+                    unlockPhrase=setting[1];
+                }
+                if(setting[0].equals("showBSOD")){
+                    Options.showBSOD=Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("showClock")){
+                    Options.showClock=Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("clockFontSize")){
+                    Options.fontSize=Float.parseFloat(setting[1]);
+                }
+                if(setting[0].equals("showDesktop")){
+                    Options.showDesktop=Boolean.valueOf(setting[1]);
+                }
+            }
+
+            System.out.println("Passphrase: "+unlockPhrase);
+            System.out.println("showBSOD: "+Options.showBSOD);
+            System.out.println("showClock: "+Options.showClock);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }//..
 
     protected MouseAdapter mkMouseAdapter(){

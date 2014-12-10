@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="JLock:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JLock_jar</output-path>
+    <root id="archive" name="Lock.jar">
+      <element id="module-output" name="Lock" />
+    </root>
+  </artifact>
+</component>
