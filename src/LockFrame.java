@@ -23,7 +23,6 @@ public class LockFrame extends JDialog {
         readConfigFile();
         setAlwaysOnTop(true);
         setUndecorated(true);
-        setBackground(new Color(0, 0, 0, 0));
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         setBounds(0, 0, gd.getDisplayMode().getWidth(), gd.getDisplayMode().getHeight());
         addMouseListener(mkMouseAdapter());
@@ -53,10 +52,13 @@ public class LockFrame extends JDialog {
             add(new JClock_Panel(), BorderLayout.CENTER);
         }
 
-        if(Options.showDesktop)
+        if(Options.showDesktop) {
+            setBackground(new Color(0, 0, 0, 0));
             bg = new JLabel(screenShot);
-        else
+        }else {
+            setBackground(Color.BLACK);
             bg = new JLabel(" ");
+        }
 
         bg.setBounds(0,0,getWidth(),getHeight());
         add(bg);
@@ -96,8 +98,7 @@ public class LockFrame extends JDialog {
                 }else{
                     phraseIDX=0;
                 }
-
-                if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                /*if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
                     System.exit(0);
                 }//*/
             }

@@ -17,10 +17,7 @@ public class JClock_Panel extends JPanel {
 		setLayout(null);
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
-//		setBounds(0, 0, gd.getDisplayMode().getWidth(), gd.getDisplayMode().getHeight());
 		setBounds(gd.getDisplayMode().getWidth() / 2 - ((int) (Options.fontSize * 4)/2), 200, (int) (Options.fontSize * 4), (int) (Options.fontSize));
-//		setBounds(300,100,400,400);
-//		setSize((int)(Options.fontSize*4),(int)(Options.fontSize));
 		setBackground(new Color(0, 0, 0, 0));
 		setOpaque(false);
 
