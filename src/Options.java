@@ -4,17 +4,22 @@ import java.util.Vector;
 
 public final class Options {
 
-	static boolean showBSOD = true,
+	static boolean showBSOD =false,
 			       showClock=false,
-	               showDesktop=true;
+	               showDesktop=false,
+                   showBanner=false;
+
+    static String bannerMessage="";
 
 	static int formatNum = 2;
-	static float fontSize = 60;
+
+	static float clockFontSize = 12,
+                 bannerFontSize = 12;
 
 	final static String timeFormat[] = {"h:mm","hh:mm","h:mm a","hh:mm a"};
 	
 	static SimpleDateFormat clockStyle = new SimpleDateFormat(timeFormat[formatNum]);
 
-    static Color color = Color.BLACK;
+    static Color clockColor = Color.BLACK;
 
 }// end Options

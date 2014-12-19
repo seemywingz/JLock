@@ -48,9 +48,17 @@ public class LockFrame extends JDialog {
 
         } catch (Exception e){}
 
+
         if(Options.showClock){
             add(new JClock_Panel(), BorderLayout.CENTER);
         }
+
+        if(Options.showBanner){
+            JLabel banner = new JLabel(Options.bannerMessage);
+            banner.setBounds(0,0,100,100);
+            banner.setFont (banner.getFont ().deriveFont (Options.bannerFontSize));//change font size
+            add(banner);
+        }//*/
 
         if(Options.showDesktop) {
             setBackground(new Color(0, 0, 0, 0));
@@ -59,6 +67,7 @@ public class LockFrame extends JDialog {
             setBackground(Color.BLACK);
             bg = new JLabel(" ");
         }
+
 
         bg.setBounds(0,0,getWidth(),getHeight());
         add(bg);
@@ -110,12 +119,13 @@ public class LockFrame extends JDialog {
             String line;
             Vector<String> entries = new Vector<String>();
             conf = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/config/jlock.conf")));
-            while ((line = conf.readLine()) != null){
+
+            while ((line = conf.readLine()) != null){// load all config file entries into vector
                     entries.add(line);
             }
 
             for(String s:entries){
-                String[] setting = s.split("=");
+                String[] setting = s.split("=");// parse config file entries into useable parts
                 if(setting[0].equals("unlockphrase")){
                     unlockPhrase=setting[1];
                 }
@@ -126,16 +136,25 @@ public class LockFrame extends JDialog {
                     Options.showClock=Boolean.valueOf(setting[1]);
                 }
                 if(setting[0].equals("clockFontSize")){
-                    Options.fontSize=Float.parseFloat(setting[1]);
+                    Options.clockFontSize =Float.parseFloat(setting[1]);
                 }
                 if(setting[0].equals("showDesktop")){
                     Options.showDesktop=Boolean.valueOf(setting[1]);
                 }
+                if(setting[0].equals("showBanner")){
+                    Options.showBanner=Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("bannerMessage")){
+                    Options.bannerMessage=setting[1];
+                }
             }
 
             System.out.println("Passphrase: "+unlockPhrase);
+            System.out.println("showDesktop: "+Options.showDesktop);
             System.out.println("showBSOD: "+Options.showBSOD);
             System.out.println("showClock: "+Options.showClock);
+            System.out.println("showBanner: "+Options.showBanner);
+            System.out.println("bannerMessage: "+Options.bannerMessage);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
