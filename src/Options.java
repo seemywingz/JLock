@@ -5,24 +5,47 @@ import java.util.Vector;
 
 public final class Options {
 
+    // Toggles
 	static boolean showBSOD =false,
 			       showClock=false,
-	               showDesktop=false,
-                   showBanner=false;
+	               showDesktop=true,
+                   showBanner=false,
+                   enableTimer=false;
 
+    // Meassages
     static String bannerMessage="";
 
-	static int formatNum = 2;
 
+    // Font sizes
 	static float clockFontSize = 12,
                  bannerFontSize = 12;
 
-	final static String timeFormat[] = {"h:mm","hh:mm","h:mm a","hh:mm a"};
-	
+    // Font colors
+    static Color clockColor = Color.BLACK,
+            bannerColor = Color.RED;
+
+    // Timer Format
+    static int countDown = 0;
+
+    // Clock Format
+    static int formatNum = 2;
+    final static String timeFormat[] = {"h:mm","hh:mm","h:mm a","hh:mm a"};
 	static SimpleDateFormat clockStyle = new SimpleDateFormat(timeFormat[formatNum]);
 
-    static Color clockColor = Color.BLACK,
-                 bannerColor = Color.BLACK;
+    public static void setWaitTime(String waitTime){
+        try {
+            String t[] = waitTime.split(":");
+            if(t.length == 1){
+                countDown=Integer.parseInt(t[0]);
+            }else if(t.length==2){
+                countDown=Integer.parseInt(t[0])*60;
+                countDown+=Integer.parseInt(t[1]);
+            }
+        }catch (Exception e){
+            countDown = 1;
+        }
+
+    }//..
 
     public static Color mkColor(String rgb){
         try {

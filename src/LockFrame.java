@@ -46,6 +46,10 @@ public class LockFrame extends JDialog {
             add(new JClock_Panel(), BorderLayout.CENTER);
         }
 
+        if(Options.enableTimer){
+            add(new LockTimer());
+        }
+
         if(Options.showDesktop) {
             setBackground(new Color(0, 0, 0, 0));
             bg = new JLabel(screenShot);
@@ -102,6 +106,12 @@ public class LockFrame extends JDialog {
                 if(setting[0].equals("clockColor")){
                     Options.clockColor = Options.mkColor(setting[1]);
                 }
+                if(setting[0].equals("enableTimer")){
+                    Options.enableTimer = Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("waitTime")){
+                    Options.setWaitTime(setting[1]);
+                }
             }
 
             System.out.println("Passphrase: "+unlockPhrase);
@@ -110,6 +120,8 @@ public class LockFrame extends JDialog {
             System.out.println("showClock: "+Options.showClock);
             System.out.println("showBanner: "+Options.showBanner);
             System.out.println("bannerMessage: "+Options.bannerMessage);
+            System.out.println("enableTimer: "+Options.enableTimer);
+            System.out.println("CountDown: "+Options.countDown);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -208,7 +220,7 @@ public class LockFrame extends JDialog {
                 200,
                 (int) (Options.bannerFontSize * Options.bannerMessage.length()),
                 (int) (Options.bannerFontSize)+(int)(Options.bannerFontSize*.25));
-        banner.setFont (banner.getFont ().deriveFont (Options.bannerFontSize));//change font size
+        banner.setFont(banner.getFont().deriveFont(Options.bannerFontSize));//change font size
         banner.setForeground(Options.bannerColor);
         add(banner);
     }//..
