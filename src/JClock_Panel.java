@@ -27,6 +27,7 @@ public class JClock_Panel extends JPanel {
 		timeLabel.setBounds(1, 0, getWidth(),getHeight());
 		timeLabel.setFont (timeLabel.getFont ().deriveFont (Options.clockFontSize));//change font size
 		timeLabel.setBackground(new Color(0,0,0,0));
+        timeLabel.setForeground(Options.clockColor);
 		timeLabel.setOpaque(false);
 		add(timeLabel);
 	
@@ -36,8 +37,6 @@ public class JClock_Panel extends JPanel {
 				while(true){
 					try{
 						timeLabel.setText(Options.clockStyle.format(now));
-                        timeLabel.setForeground(Options.clockColor);
-                        //timeLabel.setSize((int) (Options.clockFontSize * (timeLabel.getText().length()*2)),(int) (Options.clockFontSize));
 						now = new Date();
 						repaint();
 						Thread.sleep(1000);

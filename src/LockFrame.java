@@ -112,6 +112,18 @@ public class LockFrame extends JDialog {
                 if(setting[0].equals("waitTime")){
                     Options.setWaitTime(setting[1]);
                 }
+                if(setting[0].equals("showTimer")){
+                    Options.showTimer = Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("timerColor")){
+                    Options.timerColor = Options.mkColor(setting[1]);
+                }
+                if(setting[0].equals("timerFontSize")){
+                    Options.timerFontSize =Float.parseFloat(setting[1]);
+                }
+                if(setting[0].equals("shutdownOnTimeout")){
+                    Options.shutdownOnTimeout = Boolean.valueOf(setting[1]);
+                }
             }
 
             System.out.println("Passphrase: "+unlockPhrase);

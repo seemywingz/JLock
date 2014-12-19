@@ -10,7 +10,9 @@ public final class Options {
 			       showClock=false,
 	               showDesktop=true,
                    showBanner=false,
-                   enableTimer=false;
+                   enableTimer=false,
+                   showTimer=false,
+                   shutdownOnTimeout=false;
 
     // Meassages
     static String bannerMessage="";
@@ -18,11 +20,13 @@ public final class Options {
 
     // Font sizes
 	static float clockFontSize = 12,
-                 bannerFontSize = 12;
+                 bannerFontSize = 12,
+                 timerFontSize = 30;
 
     // Font colors
     static Color clockColor = Color.BLACK,
-            bannerColor = Color.RED;
+                 bannerColor = Color.RED,
+                 timerColor = Color.WHITE;
 
     // Timer Format
     static int countDown = 0;
