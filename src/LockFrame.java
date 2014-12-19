@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.Vector;
 
 /**
- * Created by Marist User on 12/2/2014.
+ * Created by Kevin Jayne on 12/2/2014.
  */
 public class LockFrame extends JDialog {
 
@@ -17,14 +17,17 @@ public class LockFrame extends JDialog {
     JLabel bg;
     ImageIcon bsod, screenShot;
     static BufferedReader conf;
+    GraphicsDevice gd;
 
 
     LockFrame(){
         readConfigFile();
         setAlwaysOnTop(true);
         setUndecorated(true);
-        GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+
+        gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         setBounds(0, 0, gd.getDisplayMode().getWidth(), gd.getDisplayMode().getHeight());
+
         addMouseListener(mkMouseAdapter());
         addMouseMotionListener(mkMouseAdapter());
         addKeyListener(mkKeyadapter());
@@ -48,17 +51,13 @@ public class LockFrame extends JDialog {
 
         } catch (Exception e){}
 
+        if(Options.showBanner){
+            showBanner();
+        }//*/
 
         if(Options.showClock){
             add(new JClock_Panel(), BorderLayout.CENTER);
         }
-
-        if(Options.showBanner){
-            JLabel banner = new JLabel(Options.bannerMessage);
-            banner.setBounds(0,0,100,100);
-            banner.setFont (banner.getFont ().deriveFont (Options.bannerFontSize));//change font size
-            add(banner);
-        }//*/
 
         if(Options.showDesktop) {
             setBackground(new Color(0, 0, 0, 0));
@@ -72,6 +71,58 @@ public class LockFrame extends JDialog {
         bg.setBounds(0,0,getWidth(),getHeight());
         add(bg);
         setVisible(true);
+    }//..
+
+    protected void readConfigFile(){
+        try {
+            String line;
+            Vector<String> entries = new Vector<String>();
+            conf = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/config/jlock.conf")));
+
+            while ((line = conf.readLine()) != null){// load all config file entries into vector
+                entries.add(line);
+            }
+
+            for(String s:entries){
+                String[] setting = s.split("=");// parse config file entries into useable parts
+                if(setting[0].equals("unlockphrase")){
+                    unlockPhrase=setting[1];
+                }
+                if(setting[0].equals("showBSOD")){
+                    Options.showBSOD=Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("showClock")){
+                    Options.showClock=Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("clockFontSize")){
+                    Options.clockFontSize =Float.parseFloat(setting[1]);
+                }
+                if(setting[0].equals("showDesktop")){
+                    Options.showDesktop=Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("showBanner")){
+                    Options.showBanner=Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("bannerMessage")){
+                    Options.bannerMessage=setting[1];
+                }
+                if(setting[0].equals("bannerFontSize")){
+                    Options.bannerFontSize=Float.parseFloat(setting[1]);
+                }
+            }
+
+            System.out.println("Passphrase: "+unlockPhrase);
+            System.out.println("showDesktop: "+Options.showDesktop);
+            System.out.println("showBSOD: "+Options.showBSOD);
+            System.out.println("showClock: "+Options.showClock);
+            System.out.println("showBanner: "+Options.showBanner);
+            System.out.println("bannerMessage: "+Options.bannerMessage);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }//..
 
     protected void startThread(){
@@ -112,55 +163,6 @@ public class LockFrame extends JDialog {
                 }//*/
             }
         };
-    }//..
-
-    protected void readConfigFile(){
-        try {
-            String line;
-            Vector<String> entries = new Vector<String>();
-            conf = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/config/jlock.conf")));
-
-            while ((line = conf.readLine()) != null){// load all config file entries into vector
-                    entries.add(line);
-            }
-
-            for(String s:entries){
-                String[] setting = s.split("=");// parse config file entries into useable parts
-                if(setting[0].equals("unlockphrase")){
-                    unlockPhrase=setting[1];
-                }
-                if(setting[0].equals("showBSOD")){
-                    Options.showBSOD=Boolean.valueOf(setting[1]);
-                }
-                if(setting[0].equals("showClock")){
-                    Options.showClock=Boolean.valueOf(setting[1]);
-                }
-                if(setting[0].equals("clockFontSize")){
-                    Options.clockFontSize =Float.parseFloat(setting[1]);
-                }
-                if(setting[0].equals("showDesktop")){
-                    Options.showDesktop=Boolean.valueOf(setting[1]);
-                }
-                if(setting[0].equals("showBanner")){
-                    Options.showBanner=Boolean.valueOf(setting[1]);
-                }
-                if(setting[0].equals("bannerMessage")){
-                    Options.bannerMessage=setting[1];
-                }
-            }
-
-            System.out.println("Passphrase: "+unlockPhrase);
-            System.out.println("showDesktop: "+Options.showDesktop);
-            System.out.println("showBSOD: "+Options.showBSOD);
-            System.out.println("showClock: "+Options.showClock);
-            System.out.println("showBanner: "+Options.showBanner);
-            System.out.println("bannerMessage: "+Options.bannerMessage);
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }//..
 
     protected MouseAdapter mkMouseAdapter(){
@@ -205,6 +207,16 @@ public class LockFrame extends JDialog {
                 robotControls();
             }
         };
+    }//..
+
+    protected void showBanner(){
+        JLabel banner = new JLabel(Options.bannerMessage);
+        banner.setBounds(gd.getDisplayMode().getWidth() / 2 - ((int) (Options.bannerFontSize * (Options.bannerMessage.length()/2))/2),
+                200,
+                (int) (Options.bannerFontSize * Options.bannerMessage.length()),
+                (int) (Options.bannerFontSize)+(int)(Options.bannerFontSize*.25));
+        banner.setFont (banner.getFont ().deriveFont (Options.bannerFontSize));//change font size
+        add(banner);
     }//..
 
     protected void hideCursor(){
