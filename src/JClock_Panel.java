@@ -15,7 +15,11 @@ public class JClock_Panel extends JPanel {
 		setLayout(null);
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
-		setBounds(gd.getDisplayMode().getWidth() / 2 - ((int) (Options.clockFontSize * 4)/2), 200, (int) (Options.clockFontSize * 4), (int) (Options.clockFontSize));
+		setBounds(gd.getDisplayMode().getWidth() / 2 - ((int) (Options.clockFontSize * 4)/2),
+                  (int)(200-Options.bannerFontSize),
+                  (int) (Options.clockFontSize * 5),
+                  (int) (Options.clockFontSize));
+
 		setBackground(new Color(0, 0, 0, 0));
 		setOpaque(false);
 
@@ -33,6 +37,7 @@ public class JClock_Panel extends JPanel {
 					try{
 						timeLabel.setText(Options.clockStyle.format(now));
                         timeLabel.setForeground(Options.clockColor);
+                        //timeLabel.setSize((int) (Options.clockFontSize * (timeLabel.getText().length()*2)),(int) (Options.clockFontSize));
 						now = new Date();
 						repaint();
 						Thread.sleep(1000);

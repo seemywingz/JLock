@@ -35,25 +35,12 @@ public class LockFrame extends JDialog {
         setFocusable(true);
         requestFocus();
         hideCursor();
-        try {
-            rob = new Robot();
 
-            String screenshotLocation = System.getProperty("user.home")+"\\AppData\\screenShot.png";
-            System.out.println(screenshotLocation);
-            BufferedImage image = rob.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-            ImageIO.write(image, "png", new File(screenshotLocation));//*/
-            screenShot = new ImageIcon(screenshotLocation);
-
-            int rand = (int)(Math.random()*2)+1;
-            bsod = new ImageIcon(ImageIO.read(getClass().getResource("/img/"+rand+".png")));
-
-            startThread();
-
-        } catch (Exception e){}
+        createRobot();
 
         if(Options.showBanner){
             showBanner();
-        }//*/
+        }
 
         if(Options.showClock){
             add(new JClock_Panel(), BorderLayout.CENTER);
@@ -228,6 +215,24 @@ public class LockFrame extends JDialog {
 
     protected void showCursor(){
         setCursor(Cursor.getDefaultCursor());
+    }//..
+
+    protected void createRobot(){// creates robot and takes a screenshot
+        try {
+            rob = new Robot();
+
+            String screenshotLocation = System.getProperty("user.home")+"\\AppData\\screenShot.png";
+            System.out.println(screenshotLocation);
+            BufferedImage image = rob.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+            ImageIO.write(image, "png", new File(screenshotLocation));//*/
+            screenShot = new ImageIcon(screenshotLocation);
+
+            int rand = (int)(Math.random()*2)+1;
+            bsod = new ImageIcon(ImageIO.read(getClass().getResource("/img/"+rand+".png")));
+
+            startThread();
+
+        } catch (Exception e){}
     }//..
 
     protected void robotControls(){
