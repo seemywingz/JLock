@@ -27,8 +27,8 @@
       <file leaf-file-name="jlock.conf" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/config/jlock.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-              <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -37,19 +37,16 @@
       <file leaf-file-name="LockFrame.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LockFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.9065421" vertical-offset="204" max-vertical-offset="3587">
-              <caret line="102" column="38" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
+            <state vertical-scroll-proportion="4.6755676" vertical-offset="0" max-vertical-offset="3655">
+              <caret line="254" column="9" selection-start-line="254" selection-start-column="9" selection-end-line="254" selection-end-column="9" />
               <folding>
                 <element signature="e#1647#1655#0" expanded="true" />
                 <element signature="e#4063#4428#0" expanded="true" />
                 <element signature="e#4417#4418#0" expanded="true" />
                 <element signature="e#4506#5146#0" expanded="true" />
                 <element signature="e#5135#5136#0" expanded="true" />
-                <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
                 <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
                 <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-                <element signature="e#8294#8295#0" expanded="true" />
-                <element signature="e#8325#8326#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,8 +55,8 @@
       <file leaf-file-name="Options.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Options.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-              <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+              <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -76,9 +73,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/JClock_Panel.java" />
+        <option value="$PROJECT_DIR$/src/config/jlock.conf" />
         <option value="$PROJECT_DIR$/src/Options.java" />
         <option value="$PROJECT_DIR$/src/LockFrame.java" />
-        <option value="$PROJECT_DIR$/src/config/jlock.conf" />
       </list>
     </option>
   </component>
@@ -470,11 +467,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -513,11 +507,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -548,11 +539,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -583,11 +571,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -618,11 +603,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -653,11 +635,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -672,11 +651,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -691,11 +667,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -710,11 +683,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -729,11 +699,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -748,11 +715,8 @@
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -773,37 +737,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Options.java">
+    <entry file="file://$PROJECT_DIR$/src/config/jlock.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/jlock.conf">
+    <entry file="file://$PROJECT_DIR$/src/Options.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LockFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9065421" vertical-offset="204" max-vertical-offset="3587">
-          <caret line="102" column="38" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
+        <state vertical-scroll-proportion="4.6755676" vertical-offset="0" max-vertical-offset="3655">
+          <caret line="254" column="9" selection-start-line="254" selection-start-column="9" selection-end-line="254" selection-end-column="9" />
           <folding>
             <element signature="e#1647#1655#0" expanded="true" />
             <element signature="e#4063#4428#0" expanded="true" />
             <element signature="e#4417#4418#0" expanded="true" />
             <element signature="e#4506#5146#0" expanded="true" />
             <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="method#hideCursor#0;class#LockFrame#0" expanded="false" />
             <element signature="method#createRobot#0;class#LockFrame#0" expanded="false" />
             <element signature="method#robotControls#0;class#LockFrame#0" expanded="false" />
-            <element signature="e#8294#8295#0" expanded="true" />
-            <element signature="e#8325#8326#0" expanded="true" />
           </folding>
         </state>
       </provider>

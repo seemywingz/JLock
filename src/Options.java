@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 
@@ -24,8 +25,12 @@ public final class Options {
                  bannerColor = Color.BLACK;
 
     public static Color mkColor(String rgb){
-        String c[] = rgb.split(",");
-        return new Color(Float.parseFloat(c[0]),Float.parseFloat(c[1]),Float.parseFloat(c[2]));
+        try {
+            String c[] = rgb.split(",");
+            return new Color(Float.parseFloat(c[0]), Float.parseFloat(c[1]), Float.parseFloat(c[2]));
+        }catch (Exception e){
+            return Color.black;
+        }
     }//..
 
 }// end Options

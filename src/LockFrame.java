@@ -252,5 +252,6 @@ public class LockFrame extends JDialog {
 
     public static void main(String[] args) {
         new LockFrame();
-    }
-}
+    }//..
+
+}// end LockFrame
