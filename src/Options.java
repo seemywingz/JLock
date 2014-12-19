@@ -20,6 +20,12 @@ public final class Options {
 	
 	static SimpleDateFormat clockStyle = new SimpleDateFormat(timeFormat[formatNum]);
 
-    static Color clockColor = Color.BLACK;
+    static Color clockColor = Color.BLACK,
+                 bannerColor = Color.BLACK;
+
+    public static Color mkColor(String rgb){
+        String c[] = rgb.split(",");
+        return new Color(Float.parseFloat(c[0]),Float.parseFloat(c[1]),Float.parseFloat(c[2]));
+    }//..
 
 }// end Options

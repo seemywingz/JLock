@@ -78,12 +78,6 @@ public class LockFrame extends JDialog {
                 if(setting[0].equals("showBSOD")){
                     Options.showBSOD=Boolean.valueOf(setting[1]);
                 }
-                if(setting[0].equals("showClock")){
-                    Options.showClock=Boolean.valueOf(setting[1]);
-                }
-                if(setting[0].equals("clockFontSize")){
-                    Options.clockFontSize =Float.parseFloat(setting[1]);
-                }
                 if(setting[0].equals("showDesktop")){
                     Options.showDesktop=Boolean.valueOf(setting[1]);
                 }
@@ -95,6 +89,18 @@ public class LockFrame extends JDialog {
                 }
                 if(setting[0].equals("bannerFontSize")){
                     Options.bannerFontSize=Float.parseFloat(setting[1]);
+                }
+                if(setting[0].equals("bannerColor")){
+                    Options.bannerColor = Options.mkColor(setting[1]);
+                }
+                if(setting[0].equals("showClock")){
+                    Options.showClock=Boolean.valueOf(setting[1]);
+                }
+                if(setting[0].equals("clockFontSize")){
+                    Options.clockFontSize =Float.parseFloat(setting[1]);
+                }
+                if(setting[0].equals("clockColor")){
+                    Options.clockColor = Options.mkColor(setting[1]);
                 }
             }
 
@@ -203,6 +209,7 @@ public class LockFrame extends JDialog {
                 (int) (Options.bannerFontSize * Options.bannerMessage.length()),
                 (int) (Options.bannerFontSize)+(int)(Options.bannerFontSize*.25));
         banner.setFont (banner.getFont ().deriveFont (Options.bannerFontSize));//change font size
+        banner.setForeground(Options.bannerColor);
         add(banner);
     }//..
 
